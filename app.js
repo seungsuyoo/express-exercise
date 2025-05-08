@@ -4,6 +4,17 @@ const morgan = require('morgan');
 
 dotenv.config(); // 호출되는 순간 .env 파일이 불러와 짐. => process.env
 
+const config = {
+  username: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
+  host: process.env.DB_HOST,
+  port: parseInt(process.env.DB_PORT, 10),
+  dialect: process.env.DB_DIALECT,
+};
+
+console.log(config);
+
 const app = express();
 
 if (process.env.NODE_ENV === 'dev') {
